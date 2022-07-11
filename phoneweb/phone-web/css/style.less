@@ -1,6 +1,8 @@
 *{
     margin: 0;
     padding: 0;
+    font: 18px "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+    color: #333;
 }
 
 @total-width: 750;
@@ -96,7 +98,10 @@ a{
 .item-list{
     display: flex;
     overflow: auto;
+
 }
+// 隐藏滚动条
+.item-list::-webkit-scrollbar {display: none;}
 
 // 设置items样式
 .items{
@@ -119,8 +124,8 @@ a{
         width: 100%;
     }
 
-    h3{
-        
-    }
+    
+
+    
 }
 
