@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBM-Tour</title>
+    <!-- 引入当前页面的样式表 -->
+    <link rel="stylesheet" href="./css/style.css">
+     <!-- 引入图标字体库 -->
+    <link rel="stylesheet" href="./fa/css/all.min.css">
+    
+
+</head>
+<body>
+    <!-- 头部容器 -->
+    <header class="top-bar">
+        <div class="menu-btn">
+            <a href="#">
+                <i class="fas fa-stream"></i>
+            </a>
+        </div>
+     
+        <h1 class="logo">
+            <a href="#">
+                IBM Tour
+            </a>
+        </h1>
+        <div class="search-btn">
+            <a href="#">
+                <i class="fas fa-search"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- banner -->
+    <div class="banner ">
+        <a href="#">
+            <img src="./img/think.png" alt="">
+        </a>
+
+    </div>
+
+    <!-- 艺术品列表 -->
+    <div class="artworks-list">
+        <div class="title">
+            <h2>Art works</h2>
+            <a class="more" href="more.html">More+ </a>
+        </div>
+        <!-- 艺术品容器 -->
+        <div class="item-list">
+          
+
+            <a href="./detail.html">
+            <div class="items">
+            
+              <div class="cover">
+                    <img src="./img/arbot.png" alt="">
+               </div>
+               
+               <h3 class="artwork-title">
+                AI bot
+
+               </h3>
+
+              </div>
+            </a>
+
+            <div class="items">
+
+                <div class="cover">
+                      <img src="./img/quant.png" alt="">
+                 </div>
+                 
+                 <h3 class="artwork-title">
+                  Daimler AG
+                 </h3>
+  
+              
+              </div>
+
+              <div class="items">
+
+                <div class="cover">
+                      <img src="./img/airpod.png" alt="">
+                 </div>
+                 
+                 <h3 class="artwork-title">
+                    Agropad
+                 </h3>
+  
+              
+              </div>
+  
+              <div class="items">
+  
+                  <div class="cover">
+                        <img src="./img/airplane.png" alt="">
+                   </div>
+                   
+                   <h3 class="artwork-title">
+                    American Airlines
+                   </h3>
+    
+                
+                </div>
+  
+
+
+        </div>
+
+
+        
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        window.watsonAssistantChatOptions = {
+        integrationID: "474ccce9-be3b-4a4a-80c7-41d83fa840de", // The ID of this integration.
+        region: "eu-gb", // The region your integration is hosted in.
+        serviceInstanceID: "072a7f17-84a8-4fa4-938e-3e6ef0bf3272", // The ID of your service instance.
+        onLoad: function(instance) { instance.render(); }
+        };
+        setTimeout(function(){
+        const t=document.createElement('script');
+        t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+        document.head.appendChild(t);
+        });
+        </script>
+
+</body>
+</html>
