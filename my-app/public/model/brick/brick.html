@@ -151,7 +151,7 @@
 
 <a-scene>
 
-    <a-entity camera="active: true" position="0 1.6 0"></a-entity>
+    <a-entity id="camera" camera="active: true" position="0 1.6 0"></a-entity>
 
 
     <a-assets>
@@ -201,11 +201,9 @@
 <script type="text/javascript" src="brick.js"></script>
 <script>
 
-  //TODO animation
   //TODO text-to-speech
   //TODO css
   //TODO game: progress bar
-  //TODO ar ver and accelerator
 
   //Index of the latest brick that has been added to the canvas
   //so obviously the next brick to be displayed in order is this var + 1
@@ -276,6 +274,11 @@
 
       //Append text of the brick to the front side of the brick
       addBrickTextModel(brickName)
+
+      //If the brick level moves up, move the camera up
+      if(currentBrick!=-1 && currentBrick!==bricks.brick.length-1 && 1+bricks.brick[currentBrick].level===bricks.brick[currentBrick+1].level){
+        moveCameraUp()
+      }
 
       //Update the state and next choices
       currentBrick++
@@ -476,6 +479,15 @@
     return colorMap[level]
   }
 
+  function moveCameraUp(){
+    let cameraComponent = document.getElementById("camera")
+    let yCoord = cameraComponent.getAttribute("position").y
+    let zCoord = cameraComponent.getAttribute("position").z
+    yCoord+=1
+    zCoord+=0.5
+    let newPos = "0 " + yCoord.toString() + " " + zCoord.toString()
+    cameraComponent.setAttribute("position",newPos)
+  }
 
   /**
    * Get the width of a brick
