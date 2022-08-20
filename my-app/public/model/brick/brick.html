@@ -329,7 +329,10 @@
 
     //Assemble the new a-text component
     let newText = document.createElement("a-text")
-    newText.setAttribute("position", calcTextPosition())
+    newText.setAttribute("position", calcTextPosition()["startPosStr"])
+    newText.setAttribute("animation","property: position; to: "+calcTextPosition()["endPosStr"]+"; dur: 1000; easing: linear;")
+
+
     newText.setAttribute("color", "rgba(255,255,255,0)")
     newText.setAttribute("value", addLineBreakToText(text))
 
@@ -347,7 +350,8 @@
 
     //Assemble the new a-text component
     let newText = document.createElement("a-text")
-    newText.setAttribute("position", calcTextPositionModel())
+    newText.setAttribute("position", calcTextPositionModel()["startPosStr"])
+    newText.setAttribute("animation","property: position; to: "+calcTextPositionModel()["endPosStr"]+"; dur: 1000; easing: linear;")
     newText.setAttribute("color", "rgba(255,255,255,0)")
     newText.setAttribute("value", addLineBreakToText(text))
 
@@ -566,7 +570,7 @@
    * and mid aligned in y axis
    * and looks like on the front surface of the brick
    *
-   * @returns {string} 3d coordinate which recognised by a-frane position attribute
+   * @returns {{startPosStr: string, endPosStr: string}} 3d coordinate which recognised by a-frane position attribute
    * @example "2 3 4" means x-coord = 2, y coord = 3, z-coord = 4
    */
   function calcTextPosition() {
@@ -580,7 +584,10 @@
 
     y = level + 1
     x = startGrid
-    return x.toString() + " " + y.toString() + " " + z.toString()
+    let endPostStr = x.toString() + " " + y.toString() + " " + z.toString()
+    y+=2
+    let startPosStr = x.toString() + " " + y.toString() + " " + z.toString()
+    return {"startPosStr":startPosStr,"endPosStr":endPostStr}
   }
 
   /**
@@ -589,7 +596,7 @@
    * and mid aligned in y axis
    * and looks like on the front surface of the brick
    *
-   * @returns {string} 3d coordinate which recognised by a-frane position attribute
+   * @returns {{startPosStr: string, endPosStr: string}} 3d coordinate which recognised by a-frane position attribute
    * @example "2 3 4" means x-coord = 2, y coord = 3, z-coord = 4
    */
   function calcTextPositionModel() {
@@ -603,7 +610,11 @@
 
     y = level + 0.5
     x = startGrid - 0.5 -2
-    return x.toString() + " " + y.toString() + " " + z.toString()
+
+    let endPostStr = x.toString() + " " + y.toString() + " " + z.toString()
+    y+=2
+    let startPosStr = x.toString() + " " + y.toString() + " " + z.toString()
+    return {"startPosStr":startPosStr,"endPosStr":endPostStr}
   }
 
   /**
